@@ -25,7 +25,7 @@ class PostController extends Controller
                 $query->where('category_id', request('category'));
             })
             ->orderBy($orderColumn, $orderDirection)
-            ->paginate(2);
+            ->paginate(10);
         return PostResource::collection($posts);
     }
 
@@ -50,5 +50,11 @@ class PostController extends Controller
         $post->update($request->validated());
 
         return new PostResource($post);
+    }
+
+    public function destroy(Post $post) {
+        $post->delete();
+
+        return response()->noContent();
     }
 }
