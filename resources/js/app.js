@@ -2,21 +2,27 @@ import './bootstrap';
 
 // import {createApp} from 'vue'
 import { createApp } from 'vue/dist/vue.esm-bundler'
-import { createRouter, createWebHistory } from "vue-router"
 import App from './layouts/App.vue'
-import PostsIndex from './components/Posts/Index.vue'
-import PostsCreate from './components/Posts/Create.vue'
 import { TailwindPagination } from 'laravel-vue-pagination'
+import router from './routes/index'
 
-const routes = [
-    { path: '/', component: PostsIndex },
-    { path: '/posts/create', component: PostsCreate },
-]
-
-const router = createRouter({
-    history: createWebHistory(),
-    routes
-})
+// const routes = [
+//     {
+//         path: '/',
+//         name: 'posts.index',
+//         component: PostsIndex
+//     },
+//     {
+//         path: '/posts/create',
+//         name: 'posts.create',
+//         component: PostsCreate
+//     },
+// ]
+//
+// const router = createRouter({
+//     history: createWebHistory(),
+//     routes
+// })
 
 const app = createApp(App)
 app.use(router)
